@@ -1,0 +1,16 @@
+[project]
+name = "face-it-test-data"
+version = "0.1.0"
+description = "Test data generation for face-it biometric authentication service"
+requires-python = ">=3.9"
+dependencies = [
+    "pillow>=10.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ipython>=8.0.0",
+]
+
+[project.scripts]
+generate-faces = "generate_synthetic_faces:main"

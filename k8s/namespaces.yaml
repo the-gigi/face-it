@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: face-it-api
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: face-it-workers

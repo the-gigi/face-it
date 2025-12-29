@@ -1,0 +1,19 @@
+# Rust
+/target
+**/*.rs.bk
+*.pdb
+
+# IDEs
+.idea/
+
+# OS
+.DS_Store
+
+# ONNX Models (too large for git, included in Docker image)
+worker/models/*.onnx
+
+# Python
+test-data/.venv/
+test-data/__pycache__/
+**/__pycache__/
+*.pyc

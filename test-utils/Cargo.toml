@@ -1,0 +1,15 @@
+[package]
+name = "test-utils"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "test_utils"
+path = "src/lib.rs"
+
+[dependencies]
+anyhow = { workspace = true }
+tokio = { workspace = true }
+kube = { version = "0.87", features = ["runtime", "derive"] }
+k8s-openapi = { version = "0.20", features = ["v1_28"] }
+serde_json = { workspace = true }

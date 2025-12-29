@@ -1,0 +1,20 @@
+[workspace]
+members = ["api-server", "worker", "common", "test-utils"]
+resolver = "2"
+
+[workspace.dependencies]
+# Shared dependencies across crates
+tokio = { version = "1.35", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+axum = { version = "0.7", features = ["macros"] }
+anyhow = "1.0"
+thiserror = "1.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true

@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+  namespace: face-it-workers
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: face-recognition-worker
+      status: ready
+  template:
+    metadata:
+      labels:
+        app: face-recognition-worker
+        status: ready
+    spec:
+      serviceAccountName: worker-sa
+      containers:
+      - name: worker
+        image: face-it-worker:latest
+        imagePullPolicy: Never  # For local kind cluster
+        ports:
+        - containerPort: 8080
+          name: http
+        env:
+        - name: PORT
+          value: "8080"
+        - name: EMBEDDINGS_PATH
+          value: "/etc/embeddings/data.json"
+        - name: MODEL_PATH
+          value: "/models/face_recognition.onnx"
+        - name: MATCH_THRESHOLD
+          value: "0.7"
+        - name: RUST_LOG
+          value: "info"
+        volumeMounts:
+        - name: embeddings
+          mountPath: /etc/embeddings
+          readOnly: true
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "500m"
+          limits:
+            memory: "512Mi"
+            cpu: "1000m"
+      volumes:
+      - name: embeddings
+        secret:
+          secretName: embeddings

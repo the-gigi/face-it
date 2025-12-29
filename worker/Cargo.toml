@@ -1,0 +1,33 @@
+[package]
+name = "worker"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "worker"
+path = "src/main.rs"
+
+[dependencies]
+# Workspace dependencies
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+axum = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+
+# Crate-specific
+ort = "2.0.0-rc.10"
+image = "0.24"
+ndarray = "0.15"
+base64 = "0.22"
+tower-http = { version = "0.5", features = ["trace"] }
+
+# Local dependencies
+common = { path = "../common" }
+
+[dev-dependencies]
+tempfile = "3.8"
+serial_test = "3.0"
