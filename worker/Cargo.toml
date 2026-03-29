@@ -23,7 +23,7 @@ ort = "2.0.0-rc.10"
 image = "0.24"
 ndarray = "0.15"
 base64 = "0.22"
-tower-http = { version = "0.5", features = ["trace"] }
+tower-http = { version = "0.6", features = ["trace"] }
 
 # Local dependencies
 common = { path = "../common" }
