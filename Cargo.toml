@@ -12,9 +12,14 @@ tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 axum = { version = "0.7", features = ["macros"] }
 anyhow = "1.0"
 thiserror = "1.0"
+# k8s-openapi 0.20.x is pulled in by kube 0.87 and requires exactly one version feature.
+# We pin v1_28 here so all workspace members that (transitively) use k8s-openapi 0.20 get
+# the required feature flag, fixing the CI build failure.
+k8s-openapi = { version = "0.20", features = ["v1_28"] }
 
 [profile.release]
 opt-level = 3
 lto = true
 codegen-units = 1
 strip = true
+
