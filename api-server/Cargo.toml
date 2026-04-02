@@ -31,7 +31,7 @@ async-trait = "0.1"
 common = { path = "../common" }
 
 [dev-dependencies]
-serial_test = "3.0"
+serial_test = "3.4"
 http = "1.0"
 test-utils = { path = "../test-utils" }
 base64 = "0.22"
