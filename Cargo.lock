@@ -87,7 +87,7 @@ dependencies = [
  "serde_json",
  "serial_test",
  "test-utils",
- "thiserror 1.0.69",
+ "thiserror 2.0.18",
  "tokio",
  "tower 0.4.13",
  "tower-http 0.6.8",
@@ -453,7 +453,7 @@ version = "0.1.0"
 dependencies = [
  "serde",
  "serde_json",
- "thiserror 1.0.69",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
@@ -4066,7 +4066,7 @@ dependencies = [
  "serde_json",
  "serial_test",
  "tempfile",
- "thiserror 1.0.69",
+ "thiserror 2.0.18",
  "tokio",
  "tower-http 0.6.8",
  "tracing",
