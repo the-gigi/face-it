@@ -61,7 +61,7 @@ impl<T: PodOperations + ?Sized> PodManager<T> {
             // Randomly select a pod to avoid thundering herd
             let mut shuffled = pods.clone();
             {
-                let mut rng = rand::thread_rng();
+                let mut rng = rand::rng();
                 shuffled.shuffle(&mut rng);
                 // rng is dropped here, before any await points
             }
