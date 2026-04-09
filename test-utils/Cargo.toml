@@ -12,4 +12,4 @@ anyhow = { workspace = true }
 tokio = { workspace = true }
 k8s-openapi = { workspace = true }
 serde_json = { workspace = true }
-kube = { version = "0.87", features = ["runtime", "derive"] }
+kube = { version = "0.99", features = ["runtime", "derive"] }

@@ -20,7 +20,7 @@ thiserror = { workspace = true }
 k8s-openapi = { workspace = true }
 
 # Crate-specific
-kube = { version = "0.87", features = ["runtime", "derive"] }
+kube = { version = "0.99", features = ["runtime", "derive"] }
 reqwest = { version = "0.13", features = ["json"] }
 rand = "0.9"
 tower = "0.4"
