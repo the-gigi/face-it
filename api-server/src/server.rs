@@ -36,6 +36,7 @@ mod tests {
         let app = build_router(state);
 
         let response = app
+            .into_service()
             .oneshot(
                 Request::builder()
                     .uri("/health")
@@ -63,6 +64,7 @@ mod tests {
         let request_body = r#"{"image_base64":"fake"}"#;
 
         let response = app
+            .into_service()
             .oneshot(
                 Request::builder()
                     .method("POST")
